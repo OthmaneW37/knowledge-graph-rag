@@ -1,20 +1,19 @@
-from extractor import Entity
+from ingestion.extractor import Entity
 
-def normalize_entity_name(name :str) -> str:
-    name = name.strip()
-    name = "".join(name.split())
-    return name.title()
 
-def resolve_entities(entities :list[Entity]) -> list[Entity]:
-    resolved={}
+def normalize_entity_name(name: str) -> str:
+    return " ".join(name.strip().split())
+
+
+def resolve_entities(entities: list[Entity]) -> list[Entity]:
+    resolved = {}
 
     for entity in entities:
-        canonical_name=normalize_entity_name(entity.name)
-
-        key=(canonical_name,entity.entity_type)
+        canonical_name = normalize_entity_name(entity.name)
+        key = (canonical_name.lower(), entity.entity_type)
 
         if key not in resolved:
-            resolved[key]=Entity(
+            resolved[key] = Entity(
                 name=canonical_name,
                 entity_type=entity.entity_type
             )
@@ -22,15 +21,16 @@ def resolve_entities(entities :list[Entity]) -> list[Entity]:
     return list(resolved.values())
 
 
-if __name__=="__main__":
-    entities=[
-        Entity(name=" kafka ", entity_type="Technology"),
-        Entity(name="Kafka", entity_type="Technology"),
-        Entity(name="KAFKA", entity_type="Technology"),
-        Entity(name="FraudIA", entity_type="Product")
+if __name__ == "__main__":
+    entities = [
+        Entity(name=" PostgreSQL ", entity_type="Technology"),
+        Entity(name="postgresql", entity_type="Technology"),
+        Entity(name="AuroraLearn", entity_type="Company"),
+        Entity(name=" auroraLearn ", entity_type="Company"),
+        Entity(name="leaderboard information", entity_type="Concept")
     ]
 
-    resolved= resolve_entities(entities)
+    resolved = resolve_entities(entities)
 
     for entity in resolved:
         print(entity)

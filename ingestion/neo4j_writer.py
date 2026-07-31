@@ -2,7 +2,8 @@ from httpcore import __name
 import os
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
-from extractor import ExtractionResult
+from ingestion.extractor import ExtractionResult
+
 
 load_dotenv()
 
@@ -33,9 +34,10 @@ def write_extraction(result: ExtractionResult):
                     """
                     MATCH (source:Entity{name:$source_name})
                     MATCH (target:Entity{name:$target_name})
-                    MERGE (source)-[r:RELATION {type :$relation_type}]->(target)
-                    SET r.confidence = $confidence,
-                    r.chunk_id=$chunk_id
+                    MERGE (source)-[r:RELATION]->(target)
+                    SET r.relation_type = $relation_type,
+                    r.confidence = $confidence,
+                    r.chunk_id = $chunk_id
                     """,
                     source_name=rel.source,
                     target_name=rel.target,

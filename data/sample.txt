@@ -1,0 +1,4 @@
+Fraud detection systems often rely on streaming architectures.
+Kafka is used to ingest events in real time.
+Neo4j can model relationships between customers, merchants, and devices.
+Pgvector can store embeddings for semantic retrieval.
