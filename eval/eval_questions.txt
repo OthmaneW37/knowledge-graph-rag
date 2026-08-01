@@ -1,0 +1,10 @@
+What does PostgreSQL use?
+How is AuroraLearn connected to Zoom?
+Explain the platform architecture
+What stores leaderboard information?
+Which technology caches session tokens?
+How does the coaching team organize live sessions?
+What technologies are used for fast access?
+What does AuroraLearn use?
+Which tool is used for live sessions?
+How are programming interviews supported?
