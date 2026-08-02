@@ -1,0 +1,96 @@
+{
+  "entities": [
+    "AuroraLearn",
+    "PostgreSQL",
+    "Redis",
+    "Zoom",
+    "Python",
+    "JavaScript",
+    "programming interviews",
+    "leaderboard information",
+    "session tokens",
+    "live sessions",
+    "coaching team",
+    "coding challenges"
+  ],
+  "relationships": [
+    {
+      "source": "AuroraLearn",
+      "relation": "USES",
+      "target": "PostgreSQL",
+      "confidence": 0.95
+    },
+    {
+      "source": "AuroraLearn",
+      "relation": "USES",
+      "target": "Redis",
+      "confidence": 0.95
+    },
+    {
+      "source": "AuroraLearn",
+      "relation": "WORKS_WITH",
+      "target": "Zoom",
+      "confidence": 0.95
+    },
+    {
+      "source": "AuroraLearn",
+      "relation": "RELATES_TO",
+      "target": "programming interviews",
+      "confidence": 0.9
+    },
+    {
+      "source": "Redis",
+      "relation": "STORES",
+      "target": "leaderboard information",
+      "confidence": 0.95
+    },
+    {
+      "source": "Redis",
+      "relation": "STORES",
+      "target": "session tokens",
+      "confidence": 0.95
+    },
+    {
+      "source": "PostgreSQL",
+      "relation": "STORES",
+      "target": "user profiles",
+      "confidence": 0.95
+    },
+    {
+      "source": "PostgreSQL",
+      "relation": "STORES",
+      "target": "submissions",
+      "confidence": 0.95
+    },
+    {
+      "source": "PostgreSQL",
+      "relation": "STORES",
+      "target": "progress data",
+      "confidence": 0.95
+    },
+    {
+      "source": "coaching team",
+      "relation": "RELATES_TO",
+      "target": "live sessions",
+      "confidence": 0.9
+    },
+    {
+      "source": "Zoom",
+      "relation": "USES",
+      "target": "live sessions",
+      "confidence": 0.9
+    },
+    {
+      "source": "Python",
+      "relation": "RELATES_TO",
+      "target": "coding challenges",
+      "confidence": 0.9
+    },
+    {
+      "source": "JavaScript",
+      "relation": "RELATES_TO",
+      "target": "coding challenges",
+      "confidence": 0.9
+    }
+  ]
+}
